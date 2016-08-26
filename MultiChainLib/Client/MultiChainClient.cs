@@ -56,6 +56,11 @@ namespace MultiChainLib
             return this.ExecuteAsync<string>("sendwithmetadata", 0, address, theAmount, FormatHex(dataHex));
         }
 
+        public Task<JsonRpcResponse<string>> SendWithMetadataExAsync(string address, Dictionary<string, object> metadata, byte[] dataHex)
+        {
+            return this.ExecuteAsync<string>("sendwithmetadata", 0, address, metadata, FormatHex(dataHex));
+        }
+
         public Task<JsonRpcResponse<string>> SendToAddressAsync(string address, string assetName, decimal amount, string comment = null,
             string commentTo = null)
         {
